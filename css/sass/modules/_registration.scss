@@ -1,0 +1,23 @@
+#gform_fields_2{
+    list-style: none;
+    margin-left: 0;
+
+    >li{
+        margin: 15px 0;
+
+        >div{
+            margin-top: 3px;
+        }
+    }
+
+    .ginput_complex{
+        >span{
+            display: block;
+            margin-bottom: 15px;
+        }
+    }
+
+    #input_2_4_strength_indicator::before{
+        content: "Password: ";
+    }
+}

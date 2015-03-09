@@ -1,0 +1,125 @@
+/*
+@keyframes slideLeft {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+@-webkit-keyframes slideLeft {
+    0% {
+        -webkit-transform: translateX(100%);
+    }			
+    100% {
+        -webkit-transform: translateX(0%);
+    }
+}
+*/
+
+@keyframes slideOpacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@-webkit-keyframes slideOpacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@-moz-keyframes slideOpacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+.page-slider{
+    overflow: hidden;
+
+    .page-slider-wrap {
+        position: absolute;
+        top: 4px;
+        left: 4px;
+        right: 4px;
+        bottom: 4px;
+        overflow: hidden;
+
+        a {
+            left: 0;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            h1 {
+                -webkit-transform: translateZ(0px);
+            }
+        }
+    }
+
+
+    .page-slide{
+        z-index: 8;
+        &.is-active{
+            z-index: 10;
+            animation-name: slideOpacity;
+            -webkit-animation-name: slideOpacity;
+            -moz-animation-name: slideOpacity;
+            animation-duration: 0.6s;	
+            -webkit-animation-duration: 0.6s;
+            -moz-animation-duration: 0.6s;
+            animation-timing-function: ease-out;	
+            -webkit-animation-timing-function: ease-out;
+            -moz-animation-timing-function: ease-out;
+        }
+    }
+}
+
+.slide-navigation{
+    position: absolute;
+    z-index: 99;
+    bottom: 8px;
+    left: 8px;
+    background: white;
+    padding: 4px 0;
+
+    .circle{
+        display: inline-block;
+        cursor: pointer;
+        position: static;
+        background: $lightGrey;
+        overflow: visible;
+        text-decoration: none;
+        width: 8px;
+        height: 8px;
+        border-radius: 100%;
+        margin-right: 4px;
+        margin-left: 4px;
+        margin-top: 4px;
+        margin-bottom: 4px;
+        vertical-align: bottom;
+        &:after {
+            display: none;
+        }
+        &:first-child {
+	        margin-left: 16px;
+        }
+        &:last-child {
+	        margin-right: 16px;
+        }
+    }
+
+    .circleActive{
+        background: $grey !important;
+    }
+}

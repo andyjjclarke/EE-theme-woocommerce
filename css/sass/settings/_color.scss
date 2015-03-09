@@ -1,0 +1,37 @@
+// Colour Schema
+// Set all colour references here
+// as variables for use throughout
+// the theme
+
+// Brand colours
+$blue: #3333cc;
+$green: #17a351;
+$grey: #646566;
+$red: #e8232d;
+
+$lightBlue: #e7e6f2;
+$lightGreen: #ebf5ed;
+$lightGrey: #f0f0f0;
+$lightRed: #fcece6;
+
+$medGrey: #ededed;
+$darkGrey: #4d4d4f;
+
+// Body
+$bodyBackground: #fff;
+$bodyColor: #646566;
+
+// Header
+$headerBackground: $grey;
+$headerColor: #fff;
+$headerButtonBackground: #4b4b4d;
+$headerButtonColor: #fff;
+$headerButtonReverseBackground: #fff;
+$headerButtonReverseColor: #4b4b4d;
+
+// Footer
+$footerBackground: #ededed;
+$footerColor: $bodyColor;
+
+// Dividers
+$dividerDefault: #777778;

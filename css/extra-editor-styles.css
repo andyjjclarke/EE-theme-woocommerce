@@ -1,0 +1,33 @@
+* { font-family: Arial, sans-serif !important; -webkit-font-smoothing: antialiased; color: #333; }
+ol { list-style: decimal inside; }
+ul { list-style: square inside; }
+ul, ol { margin-bottom: 1.5em; font-size: 14px; padding-left: 0; }
+li { line-height: 1.4; margin-bottom: 0.5em; }
+
+img { max-width: 100%; }
+img.aligncenter { display: block; margin: 0 auto; }
+img.alignleft { float: left; margin-right: 15px; }
+img.alignright { float: right; margin-left: 15px; }
+        
+p, dl { font-size: 14px; line-height: 1.6; }
+p { margin-bottom: 1em; }
+a { white-space: pre; text-decoration: underline; color: blue; }
+p:last-child { margin-bottom: 0; }
+dt { font-weight: bold; width: 20px; }
+dt:after { content: ":"; }
+dt, dd { display: inline-block; }
+
+strong { font-weight: bold; }
+em { font-style: italic; }
+
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1.2;
+    margin-bottom: 1em;
+}
+        
+h1 { font-size: 2.5em; }
+h2 { font-size: 2.3em; }
+h3 { font-size: 2.1em; }
+h4 { font-size: 1.9em; }
+h5 { font-size: 1.7em; }
+h6 { font-size: 1.4em; }

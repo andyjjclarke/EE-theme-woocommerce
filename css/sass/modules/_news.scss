@@ -1,0 +1,99 @@
+.page-template-page-news-landing-php {
+
+    .highlight-box {
+        width: 100%;
+    }
+
+    .news-box {
+        margin-bottom: 8px;		
+		a:hover, a:focus {
+	    &::after { 
+	        background: none;
+	        position: initial;
+	        }
+    	}
+		
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+
+            > li {
+                margin: 0;
+                padding: 0 8px;
+                border-top: solid 1px $grey;
+                &:hover {
+	                background: rgba(0, 0, 0, 0.1);
+                }
+                > a {
+                    padding: 3px 0;
+                }
+            }
+
+            > li:first-child {
+                border: none;
+                > a {
+                    padding-top: 5px;
+                }
+            }
+
+        }
+
+        p {
+            padding: 0;
+            position: static;
+            color: inherit;
+            min-height: 0;
+        }
+		
+		&.red {
+			ul > li {
+				border-color: $red;
+				a {
+					background: none;
+				}
+			}
+		}
+		
+		&.blue {
+			ul > li {
+				border-color: $blue;
+				a {
+					background: none;
+				}
+			}
+		}
+		
+		&.green {
+			ul > li {
+				border-color: $green;
+				a {
+					background: none;
+				}
+			}
+		}
+    }
+
+}
+
+.page-template-page-news-detail-php {
+
+    .course-dummy-header {
+        margin-top: (31px - 4px);
+    }
+
+    @include breakpoint($small) {
+
+        .col-primary-content > h1 {
+            padding-right: 248px;
+        }
+
+        .news-footer {
+            position: absolute;
+            top: 8px;
+            right: 4px;
+            width: 240px;
+        }
+    }
+
+}

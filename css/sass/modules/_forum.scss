@@ -1,0 +1,277 @@
+.col > .forum-post {
+    padding: 8px;
+    padding-bottom: 39px;
+    position: relative;
+    background: $medGrey;
+
+    &.post-list {
+        border-bottom: solid 8px white;
+    }
+
+    > .post-head {
+
+        > h1 {
+            margin: 0;
+            min-height: 46px;
+            border: none;
+            font-size: 20px;
+            line-height: 23px;
+
+            > a:link, > a:visited {
+                color: $grey;
+                text-decoration: none;
+            }
+
+        }
+
+        > p {
+            padding: 0;
+
+            > a:link, > a:visited {
+                color: $grey;
+            }
+
+        }
+    }
+
+    @include breakpoint($small) {
+
+        > .post-head > h1,
+        > .post-body {
+            width: 480px;
+            float: left;
+        }
+
+        > .post-head > p,
+        > .post-images {
+            width: 232px;
+            float: right;
+        }
+
+        &.post-list {
+            > .post-head > h1,
+            > .post-body {
+                float: right;
+            }
+
+            > .post-head > p,
+            > .post-images {
+                float: left;
+            }
+        }
+
+    }
+
+    > .post-body,
+    > .post-images {
+        padding-top: 7px;
+        border-top: solid 1px $grey;
+    }
+
+    .btn {
+        position: absolute;
+        bottom: 8px;
+    }
+
+    > .post-images img {
+        margin-bottom: 8px;
+        vertical-align: top;
+    }
+
+}
+
+.col.forum-archive {
+    padding-top: 50px;    
+    padding-left: 0;
+    padding-right: 0;
+
+    a:link, a:visited {
+        color: $grey;
+        text-decoration: none;
+    }
+
+    a:hover, a:focus {
+        text-decoration: underline;
+    }
+
+    > h1 {
+        padding: 6px 0 8px;
+        border-top: solid 2px $grey;
+        min-height: 58px;
+        font-size: 20px;
+        line-height: 23px;
+    }
+
+    > .col {
+        &:before {
+            content: "";
+            display: block;
+            margin-bottom: 7px;
+            border-top: solid 1px $grey;
+        }
+
+        > ul {
+            margin: 0;
+            padding: 0;
+        }
+    }
+
+}
+
+.col.forum-comments { 
+    &:before {
+        margin-bottom: 6px;
+        content: "";
+        display: block;
+        border-top: solid 2px $grey;
+    }
+
+    > h1 {
+        margin: 0;
+        min-height: 54px;
+        border: none;
+        font-size: 20px;
+        line-height: 23px;
+    }
+
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    > ul {
+
+        .comment-content,
+        .comment-meta {
+            padding-top: 7px;
+            position: relative;
+            border-top: solid 1px $grey;
+        }
+        
+        .comment-meta {
+            
+            a:link, a:visited {
+                color: $grey;
+                text-decoration: none;
+            }
+
+            .edit-link {
+                position: absolute;
+                top: 7px;
+                right: 0;
+                font-size: 10px;
+                line-height: 1;
+                padding: 1px 2px;
+                text-transform: uppercase;
+                background: $grey;
+                a:link, a:visited {
+                    color: white;
+                }
+            }
+        }
+            
+        .comment-meta, .reply {
+            padding-bottom: 17px;
+            .comment-reply-login {
+                @extend .btn;
+                &:hover {
+                    background: $darkGrey;
+                    color: white;
+                }
+            }
+        }
+
+        @include breakpoint($small) {
+
+            .comment-content,
+            .reply {
+                width: 488px;
+                float: right;
+            }
+
+
+            .comment-meta {
+                width: 240px;
+                float: left;
+            }
+        }
+
+        > .comment {
+            @include clearfix;
+
+            > ul {
+                clear: both;
+                @include breakpoint($small) {
+                    margin-left: 16px;
+                    .comment-meta {
+                        width: 224px;
+                    }
+                }
+            
+            }
+        }
+
+    }
+
+}
+
+.comment-respond {
+    padding: 6px 0 0;
+    border-top: solid 2px $grey;
+
+    > h3 {
+        min-height: 46px;
+        font-size: 20px;
+        font-weight: normal;
+        line-height: 23px;
+
+        small {
+            float: right;
+            font-size: 14px;
+        }
+    }
+    .btn {
+            &:hover {
+            background: $darkGrey;
+            color: white;
+        }
+    }
+
+    > .comment-form {
+
+        @include breakpoint($small) {
+            padding-left: 248px;
+            position: relative;
+
+            > .logged-in-as {
+                position: absolute;
+                width: 240px;
+                top: 0;
+                left: 0;
+            }
+
+        }
+
+        > .logged-in-as {
+            > .btn {
+                margin-top: 17px;
+            }
+        }
+
+        textarea {
+            width: 100%;
+        }
+
+        .form-submit {
+            padding-bottom: 0;
+
+            > input {
+                @extend .btn;
+                border: none;
+            }
+        }
+
+    }
+
+}

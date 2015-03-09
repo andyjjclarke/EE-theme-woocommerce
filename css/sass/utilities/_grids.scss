@@ -1,0 +1,109 @@
+/*=========================================*\
+    Grids :D
+    	- Default settings
+\*=========================================*/
+
+
+/* Mixin included here for clarity */
+
+// Grid Mixin ex. 3 columns with a 2.5% gutter: @include grid-cols(2.5%, 3); Set max columns as required
+
+@mixin grid-cols($cols, $gutter:$defaultGutter, $maxCols:8){
+
+   $colSpace: 100% - ($gutter * $cols);
+   
+   $width: $colSpace / $cols;
+   
+  
+   width:100% + $gutter;  
+   margin-left: - $gutter;
+
+   > #{$grid-item}{
+   
+       width:$width;
+       margin-left:$gutter;
+   }
+ 
+ @for $i from 2 through $maxCols {
+     
+     $thisWidth:($width * $i) + $gutter * ($i - 1);
+      
+       // get rid of any grid items over 100% we wont need i.e .span-4 on a 3 column grid.
+      
+        @if($thisWidth < 100){
+      
+         > #{$grid-item}.span-#{$i}{
+      
+            width:$thisWidth;
+   
+         }
+      }   
+        
+   }
+
+}
+
+
+#{$grid}{
+  
+ @extend .cf;
+ 
+ #{$grid-item}{
+    float:left;
+  }
+  
+  &[class*="switched"]{
+    #{$grid-item}{
+      float:right;
+    }
+  }
+  
+  
+  &.cols-1-8{
+	 
+	  @include grid-cols(1, 0);
+	 
+	  @include breakpoint($medium) {
+	  	@include grid-cols(8); 
+	  }
+  }
+
+    &.cols-1-5{
+   
+    @include grid-cols(1, 0);
+   
+    @include breakpoint($medium) {
+      @include grid-cols(5); 
+    }
+  }
+  
+  &.cols-1-2-4{
+	   
+	  @include grid-cols(1, 0); 
+	   
+	  @include breakpoint($medium) {
+	  	@include grid-cols(2); 
+	  }
+	  
+	  @include breakpoint($large) {
+	  	@include grid-cols(4); 
+	  }
+  }
+  
+   &.cols-1-2-6{
+	   
+	  @include grid-cols(1, 0); 
+	   
+	  @include breakpoint($medium) {
+	  	@include grid-cols(2); 
+	  }
+	  
+	  @include breakpoint($large) {
+	  	@include grid-cols(6); 
+	  }
+  }
+  
+}
+
+
+

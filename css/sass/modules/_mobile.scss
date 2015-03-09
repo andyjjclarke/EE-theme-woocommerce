@@ -1,0 +1,129 @@
+@include breakpoint($small, max){
+    .icon-wrap {
+        width: 17%;
+        height: auto;
+        max-width: 31px;
+        max-height: 31px;
+    }
+    .share ul.share-links li {
+        margin-left: 3%;
+        margin-right: 0;
+    }
+
+    .feature-box .page-slider-wrap .img-wrap img, .feature-box .page-slider-wrap .img-wrap canvas {
+        margin-top: 0;
+    }
+
+    .col-secondary-content, .col-primary-content{
+        img{
+            display: block;
+            margin-bottom: $standard-space;
+        }
+    }
+
+    .col.col-primary-content h1{
+        margin-bottom: $mobile-spacing;
+    }
+
+    .col-sidebar {
+        @include clearfix;
+    }
+    .sidebar {
+        @include clearfix;
+        ul {
+            @include clearfix;
+        }
+        li.default {
+            width: 50%;
+            float: left;
+            border-top: transparent;
+            padding: 0 4px 0 4px;
+            // @include retina-image('../images/icon-grey-arrow', 31px 31px, png);
+            background-position: bottom left;
+            background-repeat: no-repeat;
+            margin-bottom: 8px;
+            &:nth-child(odd) {
+                padding: 0 4px 0 0;
+            }
+            &:nth-child(even) {
+                padding: 0 0 0 4px;
+                background-position-x: 4px;
+            }
+            a {
+                height: inherit;
+                border-top: solid 1px #646566;
+            }
+            .sidebar-body {
+                margin-right: 0;
+            }
+            .icon-wrap {
+                display: none;
+            }
+        }
+    }
+
+    .share {
+        padding-top: 0;
+        @include clearfix;
+        padding-bottom: 0;
+        .col {
+            width: 50%;
+            float: left;
+        }
+    }
+
+    .nav-wrapper {
+        li {
+            height: 50px;
+            margin: 0;
+            padding: 0 4px;
+            border-top: transparent;
+            a {
+                border-top: solid 1px #646566;
+            }
+            &#menu-item-79 { /* go shopping */
+                background: #E31B40;
+                a {
+                    color: white;
+                    border-top: transparent;
+                }
+            }
+            &#menu-item-67 { /* contact us */
+                background: #31A754;
+                a {
+                    color: white;
+                    border-top: transparent;
+                }
+            }
+        }
+        ul.nav-signin, ul.nav-checkout {
+            a {
+                border-top: 1px solid white;
+                width: 100%;
+            }
+            li {
+                background: #666;
+                &.first-item a {
+                    border-top: transparent;
+                }
+                a {
+                    color: white;
+                }
+            }
+        }
+        .search-form {
+            background: white;
+            margin: 0;
+            padding: 0 4px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            border-top: none;
+            height: 80px;
+            input {
+                background-color: white;
+            }
+        }
+    }
+}

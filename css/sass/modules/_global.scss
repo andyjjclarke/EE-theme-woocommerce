@@ -1,0 +1,598 @@
+// Border box
+*, *:before, *:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+
+}
+
+@media screen and (max-width: 782px) {
+    html body #wpadminbar {
+        position: fixed !important;
+        z-index: 9999999 !important;
+    }
+}
+
+// Clearfix
+.cf {
+    @include clearfix;
+}
+
+.clear {
+    clear: both;
+}
+
+// Body
+body {
+    background: $footerBackground;
+    color: $bodyColor;
+    font: 14px/17px Arial, Sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+// Links
+a:link, a:visited {
+    color: #00c;
+    text-decoration: underline;
+}
+a:hover, a:focus {
+    color: #000;
+    text-decoration: underline;
+}
+
+img {
+    vertical-align: top;
+}
+
+h1, h2, h3 {
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-size: 32px;
+    line-height: 35px;
+    font-weight: normal;
+}
+
+p {
+    margin: 0;
+    padding: 0 0 17px;
+}
+
+@include breakpoint($small){
+    ol, ul {
+        margin: 0 0 0 17px;
+        padding: 0 0 17px;
+    }
+}
+
+ol {
+    list-style: decimal;
+}
+
+ul {
+    list-style: none;
+}
+
+// Grid
+
+.main {
+    @include breakpoint($small) {
+	    padding-top: 31px;
+    }
+    position: relative;
+    background: $bodyBackground;
+}
+
+.main, .head {
+    > .wrap {
+        position: relative;
+    }
+}
+
+.main, .head, .share, .foot {
+    @include breakpoint($small, max) {
+        min-width: auto;
+    }
+    @include transition(all 0.3s ease-in-out);
+    &.show-nav {
+        @include transform(translateX(-80%));
+    }
+}
+
+.wrap {
+    margin: 0 auto;
+    padding: 0 4px;
+    @include breakpoint($small) {
+        width: 1000px;
+    }
+}
+
+.col {
+    padding: 4px;
+    @include breakpoint($small) {
+        float: left;
+        width: 25%;
+    }
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+body .pull-left { // make it more specific
+                  float: left;
+}
+
+@include breakpoint($small){
+    body .pull-right { // make it more specific
+                       float: right;
+    }
+}
+
+body .col.full-width { // make it more specific
+                       width: 100%;
+}
+
+.col-main:before {
+    margin-bottom: 4px;
+    content: "";
+    display: block;
+    @include breakpoint($small) {
+	    margin-bottom: 2px;
+    	border-top: solid 2px $dividerDefault;
+    }
+}
+
+.col-main, .col-sidebar, .col-full {
+    padding: 0;
+    position: relative;
+
+    &:before {
+        margin-left: 4px;
+        margin-right: 4px;
+    }
+}
+
+@include breakpoint($small) {
+
+    .col-main {
+        width: 75%;
+
+        .col {
+            width: 33.3333333333%;
+        }
+        .col-double {
+            width: 66.6666666666%;
+            .col {
+                padding-top: 0;
+                padding-bottom: 0;
+                width: 50%;
+            }
+            .pull-left {
+                padding-left: 0;
+            }
+            .pull-right {
+                padding-right: 0;
+            }
+        }
+
+    }
+
+    .col-sidebar {
+        width: 25%;
+    }
+
+    .col-full {
+        width: 100%;
+        clear: both;
+    }
+
+    .col.col-primary-content {
+        width: 66.67%;
+        float: right;
+
+        h1 {
+            margin-bottom: 7px;
+            padding-bottom: 8px;
+            min-height: 55px;
+            border-bottom: solid 1px $grey;
+        }
+
+        div, span {
+
+            &.alignleft {
+                margin: 0 8px 8px -4px;
+                float: left;
+            }
+
+            &.alignright {
+                margin: 0 -4px 8px 8px;
+                float: right;
+            }
+
+            &.size-one-col,
+            &.size-one-col-square {
+                width: 50%;
+            }
+
+            &.size-two-col-square {
+                width: 100%;
+            }
+
+        }
+
+        &.full-width {
+
+            div, span {
+
+                &.size-one-col-square,
+                &.size-one-col {
+                    width: 33.33%;
+                }
+
+                &.size-two-col-square {
+                    width: 66.67%;
+                }
+
+            }
+
+        }
+
+        &.is-empty {
+            margin-bottom: -8px;
+        }
+
+    }
+
+    .col.col-secondary-content {
+        width: 33.33%;
+        float: left;
+
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        img {
+            vertical-align: top;
+        }
+
+        li {
+            margin-bottom: 8px;
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        li.quote {
+            position: relative;
+            background: $lightGrey;
+
+            &:before {
+                content: "";
+                display: block;
+                float: left;
+                padding-bottom: 100%;
+                width: 1px;
+                margin-right: -1px;
+            }
+
+            blockquote {
+                margin-right: 39px;
+                border: none;
+                padding: 8px;
+
+                footer, h1 {
+                    text-align: left;
+                }
+            }
+
+            .icon-wrap {
+                position: absolute;
+                top: 8px;
+                right: 8px;
+                max-width: 37px;
+                max-height: 37px;
+            }
+        }
+
+    }
+}
+
+// Buttons
+
+.btn {
+    padding: 1px 8px 0;
+    display: inline-block;
+    width: 116px;
+    background: $grey;
+    color: white;
+    font-size: 12px;
+    line-height: 30px;
+    text-align: center;
+    &:link, &:visited {
+        color: white;
+        text-decoration: none;
+    }
+    &:hover, &:focus {
+        color: $grey;
+        background: white;
+
+    }
+}
+
+// Icons
+
+.icon-wrap {
+    position: relative;
+    width: 31px;
+    height: 31px;
+    background: $grey;
+
+    &:after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 6px;
+        height: 6px;
+        @include triangle(6px, $grey, up-left);
+    }
+}
+.quote {
+    .icon-wrap {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+    }
+}
+
+.icon {
+    display: block;
+    @include retina-image("../images/icons", 31px 186px);
+    width: 31px;
+    height: 31px;
+}
+
+.icon-search {
+    background-position: 0 -0px;
+}
+
+.icon-twitter {
+    width: 31px;
+    height: 31px;
+    background-position: 0 -31px;
+}
+
+.icon-facebook {
+    width: 31px;
+    height: 31px;
+    background-position: 0 -62px;
+}
+
+.icon-linkedin {
+    width: 31px;
+    height: 31px;
+    background-position: 0 -93px;
+}
+
+.sprite-phone {
+    width: 31px;
+    height: 31px;
+    background-position: 0 -124px;
+}
+
+.icon-email {
+    width: 31px;
+    height: 31px;
+    background-position: 0 -155px;
+}
+
+// Blockquotes
+
+blockquote {
+    background: $lightGrey;
+    border-left: 4px solid $grey;
+    margin: 0 0 17px;
+    padding: 8px;
+
+    p:last-child {
+        padding-bottom: 0;
+    }
+
+    footer, h1 {
+        font-size: 14px;
+        line-height: 17px;
+        text-align: right;
+    }
+
+    footer p {
+        padding: 0;
+    }
+
+    h1 {
+        font-weight: bold;
+    }
+
+    cite {
+        font-style: normal;
+    }
+}
+
+// Tables
+
+table {
+    margin-bottom: 17px;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+td, th {
+    padding: 0;
+    border-bottom: solid 1px $grey;
+    line-height: 30px;
+}
+
+th {
+    text-align: left;
+}
+
+tbody th {
+    font-weight: normal;
+}
+
+// Breadcrumb
+
+.breadcrumbs {
+	display: none;
+    padding: 0 4px;
+    font-size: 12px;
+    line-height: 31px;
+
+    @include breakpoint($small) {
+	    display: initial;
+        margin-top: -30px;
+        position: absolute;
+    }
+
+    a:link, a:visited {
+        color: $grey;
+        text-decoration: none;
+    }
+
+    a:hover, a:focus {
+        text-decoration: underline;
+    }
+}
+
+// Pagination
+
+.pagination {
+    margin-bottom: 31px;
+    line-height: 31px;
+
+    > .wp-paginate {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    li {
+        margin-right: 8px;
+        float: left;
+    }
+
+    a, span {
+        display: block;
+        width: 116px;
+        background: $grey;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+    }
+
+    .title {
+        width: 240px;
+        font-weight: bold;
+        text-align: left;
+        background: transparent;
+        color: $grey;
+    }
+
+    .page, .next, .prev {
+        width: 31px;
+
+        &.current {
+            background: $red;
+        }
+    }
+}
+
+// Search results
+
+.col.col-primary-content {
+
+    .search-result {
+        margin: -8px 0 8px;
+        border-bottom: solid 1px $grey;
+        padding: 7px 0 12px;
+
+        > h1 {
+            margin: 0;
+            padding: 0;
+            font-size: 20px;
+            min-height: 0;
+            border: none;
+        }
+
+        > p {
+            padding: 0;
+        }
+
+    }
+}
+
+.page-template-contact-php h3{
+    display: inline;
+}
+
+.standard-line-spacing{
+    margin-bottom: $standard-space;
+}
+
+.col.border-bottom-small {
+    padding-bottom: 0;
+    &:after {
+        content: "";
+        margin: 4px 4px 0;
+        display: block;
+        border-bottom: solid 1px $grey;
+    }
+}
+
+.col.three-col-overline {
+    padding-left: 0;
+    padding-right: 0;
+
+    > h1{
+        min-height: 50px;
+        margin: 0 4px;
+        border-bottom: none;
+    }
+
+    > .col {
+        &:before {
+            content: "";
+            display: block;
+            margin-bottom: 7px;
+            border-top: solid 1px $grey;
+        }
+
+        ul {
+            list-style: none;
+        }
+    }
+}
+
+.iframe-container{
+    width: 100%;
+    height: 0;
+    padding-bottom: 56%;
+    position: relative;
+    margin-bottom: 1em;
+    > iframe{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+}
+
+.multiple-side-images {
+    display: block;
+    margin-bottom: 8px;
+}

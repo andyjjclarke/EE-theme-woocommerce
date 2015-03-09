@@ -1,0 +1,61 @@
+.page-template-home-php {
+
+    .highlight-box {
+
+        @include breakpoint($small) {
+            float: left;
+            width: 248px;
+        }
+
+        p {
+            min-height: 85px;
+        }
+    }
+
+    @include breakpoint($small) {
+        .col-sidebar {
+            position: absolute;
+            top: 0;
+            right: 4px;
+            padding-left: 2px;
+        }
+    }
+
+    .sidebar {
+        border-bottom: none;
+
+        &:after {
+            content: "";
+            padding-top: 200%;
+            position: absolute;
+            top: 0;
+            left: 6px;
+            right: 4px;
+            display: block;
+
+            // Stops line appearing on ios
+            @include breakpoint($small){
+                border-bottom: solid 1px $grey;
+            }
+        }
+
+        li {
+            position: relative;
+            z-index: 1;
+        }
+
+        &.red:after {
+            border-color: $red;
+        }
+
+        &.green:after {
+            border-color: $green;
+        }
+
+        &.blue:after {
+            border-color: $blue;
+        }
+
+    }
+
+}

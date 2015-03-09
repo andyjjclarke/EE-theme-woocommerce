@@ -1,0 +1,48 @@
+/*=====================================================*\
+    Debug / Quality Control Tool (taken from Inuit CSS)
+
+    Author:             Harry Roberts
+    Twitter:            @inuitcss
+    Author URL:         csswizardry.com
+    Project URL:        inuitcss.com
+
+    Copyright 2011-2012 Harry Roberts
+
+\*=====================================================*/
+
+.debug [style] {
+    outline: 3px solid yellow;
+}
+
+.debug img {
+    outline: 3px solid red;
+}
+
+.debug img[alt] {
+    outline-color: green;
+}
+
+.debug img[alt=""] {
+    outline-color: yellow;
+}
+
+.debug a {
+    outline: 3px solid yellow;
+}
+
+.debug a[title]{
+    outline-color: green;
+}
+
+.debug a[href="#"]{
+    outline-color: yellow;
+}
+
+.debug a[target], .debug a[onclick],
+.debug a[href*=javascript] {
+    outline-color: red;
+}
+
+.debug [class=""], .debug [id=""]{
+    outline:3px solid yellow;
+}

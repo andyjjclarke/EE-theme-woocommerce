@@ -1,0 +1,339 @@
+.head {
+    padding: 4px 4px 0;
+    position: relative;
+    z-index: 100;
+    background: $headerBackground;
+    color: $headerColor;
+
+    .logo-image{
+        width: 365px;
+    }
+    @include breakpoint($small){
+        h1 {
+            padding: 4px;
+            position: relative;
+            z-index: 100;
+            display: inline-block;
+            margin-bottom: 36px;
+
+        }
+    }
+    h1 {
+        padding: 4px;
+        margin-bottom: 74px;
+
+        a {
+            display: block;
+        }
+    }
+    @include transition(all 0.3s ease-in-out);
+    &.show-nav {
+        @include transform(translateX(-80%));
+    }
+}
+
+[placeholder]:focus::-webkit-input-placeholder {
+    transition: opacity 0.5s 0.5s ease;
+    opacity: 0;
+}
+
+.search-form {
+    position: relative;
+    margin: 0 4px;
+    height: 31px;
+    background: white;
+    overflow: hidden;
+    border-top: 1px solid #666666;
+
+    @include breakpoint($small) {
+        position: absolute;
+        margin: 4px 128px -35px 4px;
+        width: 240px;
+        border-top: none;
+    }
+
+    > label > span{
+        display: none;
+    }
+
+    .search-field {
+        padding: 0 31px 0 0;
+        position: absolute;
+        border: none;
+        background: $medGrey;
+        font-family: Arial, Sans-serif;
+        font-size: 14px;
+        line-height: 31px;
+        width: 100%;
+        @include placeholder {
+	        color: $grey;
+        }
+
+        @include breakpoint($small) {
+            width: 201px;
+            padding: 0 31px 0 8px;
+            font-size: 12px;
+            padding: 0 31px 0 4px;
+            background: white;
+            @include placeholder {
+	            color: #b0b0b0;
+            }
+        }
+/*        @include breakpoint($small, max){
+            position: relative;
+            padding: 0 0 0 8px;
+        }*/
+
+
+    }
+
+    .search-submit {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 31px;
+        height: 31px;
+        z-index: 1;
+        border: none;
+        background: $medGrey;
+        text-indent: -500em;
+        @include retina-image("../images/icons", 31px 155px);
+        @include breakpoint($small) {
+	        background: white;
+	        @include retina-image("../images/icons", 31px 155px);
+        }
+    }
+
+}
+
+@include breakpoint($small) {
+
+    .head-nav .menu-item a { // copied from .btn - extend won't work here
+        padding: 1px 8px 0;
+        display: inline-block;
+        width: 116px;
+        background: $grey;
+        color: white;
+        font-size: 12px;
+        line-height: 30px;
+        text-align: center;
+        &:link, &:visited {
+            color: white;
+            text-decoration: none;
+        }
+        &:hover, &:focus {
+            color: $grey;
+            background: white;
+
+        }
+    }
+
+    .nav-wrapper {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        max-width: 992px;
+    }
+
+    .head-nav {
+        position: absolute;
+        top: 0;
+        right: 0;
+
+        .menu-item a {
+            &:link, &:visited {
+                background: white;
+                color: $grey;
+            }
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            float: right;
+            clear: both;
+
+            > li {
+                padding: 4px;
+                float: left;
+            }
+        }
+
+        .btn {
+            background: $darkGrey;
+
+            &:hover, &:focus {
+                background: white;
+                color: $grey;
+            }
+        }
+
+        li.contact {
+
+            a:link,
+            a:visited {
+                background: $green;
+                color: white;
+            }
+
+            a:hover,
+            a:focus {
+                background: white;
+                color: $green;
+            }
+
+        }
+
+    }
+
+    .main-nav {
+        margin-top: 160px;
+
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        > ul > li {
+            width: 12.5%;
+            float: left;
+            position: relative;
+            padding: 0 4px;
+
+            @include breakpoint($small, max){
+                width: 100%;
+            }
+
+            a {
+                font-size: 12px;
+            }
+
+            > a {
+                padding: 7px 0 6px;
+                display: block;
+                text-align: center;
+                white-space: nowrap;
+                text-overflow: ellipse;
+                text-decoration: none;
+                border: solid 1px white;
+                border-bottom: none;
+
+                &:link, &:visited {
+                    color: white;
+                }
+            }
+
+            > ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                width: 100%;
+                @include breakpoint($small) {
+                    width: 240px;
+                }
+                background: $medGrey;
+                border: solid 8px $medGrey;
+                border-top-width: 30px;
+                box-shadow: 2px 4px 4px 0px rgba(0,0,0,0.4);
+                z-index: 999;
+
+                &:after {
+                    content: "";
+                    display: block;
+                    border-top: solid 1px #d6d6d6;
+                }
+
+                > li {
+                    border-top: solid 1px #d6d6d6;
+
+                    &.current-page-ancestor,
+                    &.current-menu-item {
+                        > a:link, > a:visited {
+                            text-decoration: underline;
+                        }
+                    }
+                }
+
+                a {
+                    padding: 8px 0;
+                    display: block;
+                    font-size: 14px;
+
+                    &:link, &:visited {
+                        color: $grey;
+                        text-decoration: none;
+                    }
+                    &:hover, &:focus {
+                        text-decoration: underline;
+                    }
+                }
+
+            }
+
+            &.current-page-ancestor,
+            &.current-menu-item {
+                > a:link, > a:visited {
+                    background: white;
+                    color: $grey;
+                }
+            }
+
+            &:hover {
+
+                > a:link, > a:visited {
+                    background: white;
+                    color: $grey;
+                    border-color: white;
+                }
+
+                > ul {
+                    display: block;
+                }
+            }
+
+            &.menu-item-has-children:hover {
+
+                > a:link, > a:visited {
+                    background: $medGrey;
+                    border-color: $medGrey;
+                }
+
+            }
+
+            &.go-shopping {
+                > a:link, > a:visited {
+                    background: $red;
+                    border-color: $red;
+                    border-left: none;
+                    border-right: none;
+                    border-bottom: 0;
+                }
+                > a:hover, > a:focus {
+                    background: white;
+                    border-color: white;
+                    color: $red;
+                }
+            }
+        }
+    }
+
+    .menu-activator {
+        display: none;
+    }
+
+/*.nav-wrapper{
+    position: absolute;
+    z-index: 100;
+    top: 0;
+    right: 0;
+    width: 100%;
+
+    // WordPress admin bar
+    .admin-bar & {
+        top: 32px;
+    }
+}*/
+
+}

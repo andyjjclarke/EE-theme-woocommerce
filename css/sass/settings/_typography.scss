@@ -1,0 +1,51 @@
+// Custom classes for TinyMCE
+
+.cms.h1,
+.cms.h2,
+.cms.h3,
+.cms.h4,
+.cms.h5,
+.cms.h6 {
+	font-weight: normal;
+}
+.cms.h1 {
+	font-size: 32px;
+	line-height: 35px;
+}
+.cms.h2 {
+	font-size: 20px;
+	line-height: 23px;
+}
+
+.cms.btn {
+	&:hover {
+		cursor: pointer;
+		background: $darkGrey;
+		color: white;
+	}
+	a {
+		color: inherit;
+		text-decoration: none;
+	}
+	&.red {
+		background: $red;
+		&:hover {
+			background: $lightRed;
+			color: $red;
+		}
+	}
+	&.blue {
+		background: $blue;
+		&:hover {
+			background: $lightBlue;
+			color: $blue;
+		}
+	}
+	&.green {
+		background: $green;
+		&:hover{
+			background: $lightGreen;
+			color: $green;
+		}
+	}
+}

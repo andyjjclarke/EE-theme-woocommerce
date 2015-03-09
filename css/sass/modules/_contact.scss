@@ -1,0 +1,45 @@
+.page-template-contact-php .col-primary-content{
+    margin-bottom: 7px;
+    
+
+    ul{
+        margin-left: 0;
+    }
+
+    span{
+        display: block;
+    }
+
+    a{
+        color: $grey;
+        text-decoration: none;
+    }
+
+}
+
+#acf-map {
+    height: 488px;
+    border: transparent solid 1px;
+    margin: 20px 4px;
+
+    img{
+        max-width: intrinsic;
+    }
+
+    &:before {
+        margin: 0 4px 3px;
+        content: "";
+        display: block;
+        border-top: solid 1px $grey;
+    }
+}
+
+.col{
+    div{
+        &:last-child{
+            ul{
+                padding: 0 0;
+            }
+        }     
+    }
+}

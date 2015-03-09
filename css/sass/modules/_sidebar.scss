@@ -1,0 +1,173 @@
+.sidebar {
+    margin: 0 4px;
+    height: 100%;
+    border-bottom: solid 1px $grey;
+    
+    h1 {
+        padding: 6px 0 8px;
+        min-height: 62px;
+        border-top: solid 2px $grey;
+        font-size: 20px;
+        line-height: 23px;
+        font-weight: bold;
+    }
+
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    li {
+        border-top: solid 1px $grey;
+    }
+    
+    li.twitter-feed {
+	    margin-top: 2em;
+	    border-top: none;
+    }
+
+    a, .sidebar-wrap {
+        padding: 7px 0 8px;
+        display: block;
+        position: relative;
+        text-decoration: none;
+    }
+
+    a {
+        &:hover, &:focus {
+            background: $lightGrey;
+        }
+    }
+    a:link, a:visited {
+        color: $grey;
+    }
+
+    li.default .sidebar-body {
+        margin-right: 47px;
+
+        h2, .sidebar-description {
+            font-size: 20px;
+            line-height: 23px;
+            font-weight: normal;
+        }
+
+        h2 {
+            font-weight: bold;
+        }
+        h2:last-child {
+            font-weight: normal;
+        }
+
+    }
+
+    li.image .sidebar-body {
+        margin-right: 0;
+        margin-left: 94px;
+        min-height: 85px;
+    }
+
+    .icon-wrap {
+        position: absolute;
+        top: 7px;
+        right: 0;
+        @include hide-text();
+    }
+
+    .image-wrap {
+        position: absolute;
+        top: 7px;
+        left: 0;
+        img {
+            vertical-align: top;
+        }
+        .multiply {
+            position: relative;
+            background-color: $grey;
+        }
+        .replaced > canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 10;
+        }
+    }
+
+    .sidebar-cta {
+        padding-top: 17px;
+        text-decoration: underline;
+    }
+
+    &.red {
+        color: $red;
+        &, h1, li {
+            border-color: $red;
+        }
+        a:link, a:visited {
+            color: $red;
+        }
+        a:hover, a:focus {
+            background: $lightRed;
+        }
+        .icon-wrap {
+            background: $red;
+            &:after {
+                border-top-color: $red;
+            }
+        }
+        .image-wrap {
+            .multiply {
+                background-color: $red;
+            }
+        }
+    }
+
+    &.green {
+        color: $green;
+        &, h1, li {
+            border-color: $green;
+        }
+        a:link, a:visited {
+            color: $green;
+        }
+        a:hover, a:focus {
+            background: $lightGreen;
+        }
+        .icon-wrap {
+            background: $green;
+            &:after {
+                border-top-color: $green;
+            }
+        }
+        .image-wrap {
+            .multiply {
+                background-color: $green;
+            }
+        }
+    }
+
+    &.blue {
+        color: $blue;
+        &, h1, li {
+            border-color: $blue;
+        }
+        a:link, a:visited {
+            color: $blue;
+        }
+        a:hover, a:focus {
+            background: $lightBlue;
+        }
+        .icon-wrap {
+            background: $blue;
+            &:after {
+                border-top-color: $blue;
+            }
+        }
+        .image-wrap {
+            .multiply {
+                background-color: $blue;
+            }
+        }
+    }
+
+}

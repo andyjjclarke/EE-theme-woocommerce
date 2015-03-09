@@ -1,0 +1,118 @@
+.course-dummy-header {
+    margin: 0;
+
+    thead > tr > th {
+        border-bottom: none;
+        border-top: solid 1px $grey;
+
+        &:last-child {
+            width: (77px + 8px);
+        }
+    }
+}
+
+.course-dummy-header, .course-detail {
+    
+    thead > tr > th:first-child {
+        @include hide-text;
+        border: none;
+    }
+
+    .data {
+        @include breakpoint($small) {
+            width: (240px - 8px) / 3;
+        }
+    }
+}
+
+.col > .course-detail {
+    margin-bottom: 8px;
+    padding: 8px;
+    background: $medGrey;
+
+    > h1 {
+        margin: 0;
+        min-height: 46px;
+        border: none;
+        font-size: 20px;
+        line-height: 23px;
+    }
+
+    &.is-highlight {
+        background: #d7d7d9;
+        h1 {
+            font-size: 32px;
+            line-height: 35px;
+        }
+    }
+
+    @include breakpoint($small) {
+        padding: 8px 8px 39px;
+        position: relative;
+
+        > .course-body,
+        > .course-meta {
+            padding-top: 8px;
+            border-top: solid 1px $grey;
+        }
+
+        > .course-body {
+            width: 480px;
+            float: left;
+
+            > .course-duration {
+                padding-bottom: 0;
+                font-weight: bold;
+            }
+        }
+
+        > .course-meta {
+            width: 232px;
+            float: right;
+        }
+
+        .btn {
+            position: absolute;
+            bottom: 8px;
+        }
+
+    }
+
+}
+    
+.col > .course-listing {
+    margin-top: 2px;
+    margin-bottom: 0;
+    padding-top: 0;
+
+    > h1 {
+        padding: 0;
+        min-height: 0;
+        border-bottom: solid 1px $grey;
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 29px;
+    }
+
+    thead {
+        display: none;
+    }
+
+    footer {
+        margin-right: -8px;
+        width: 33.33%;
+        float: right;
+    }
+}
+
+.page-template-page-course-list-php {
+
+    .col-primary-content {
+        margin-bottom: (31px - 4px);
+    }
+
+    .col-primary-content.is-listing {
+        margin-bottom: 0; 
+    }
+
+}

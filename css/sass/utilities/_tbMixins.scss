@@ -1,0 +1,14 @@
+// Mixins
+// A collection of mixins to help
+// ease development (not included in compass or bourbon)
+
+
+@mixin breakpoint($point, $dir: min) {
+    @media (#{$dir}-width: $point) {
+        @content; 
+    }
+}
+
+@mixin border-standard($side, $width){
+   border-#{$side} : $width solid $grey;
+}

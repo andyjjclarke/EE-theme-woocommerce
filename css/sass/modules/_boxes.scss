@@ -1,0 +1,444 @@
+.feature-box, .highlight-box, .plain-box, .secondary-highlight-box {
+    position: relative;
+
+    a {
+        display: block;
+    }
+
+    a:link, a:visited {
+        color: $grey;
+        text-decoration: none;
+    }
+    a:hover, a:focus {
+        //position: relative; // ^*^ Fixes pagination issue on homepage slider
+
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.1);
+            z-index: 100;
+            opacity: 1;
+        }
+
+
+        h1 {
+            z-index: 101;
+        }
+
+        .btn {
+            z-index: 101;
+            background: white;
+            color: $grey;
+        }
+
+        .icon-wrap {
+            z-index: 101;
+        }
+
+    }
+
+    h1 {
+        font-size: 20px;
+        line-height: 23px;
+        font-weight: normal;
+    }
+
+    .img-wrap {
+        position: relative;
+        overflow: hidden;
+
+        &:before {
+            margin-bottom: 50%;
+            content: "";
+            display: block;
+
+            @include breakpoint($small) {
+                margin-bottom: 100%;
+            }
+        }
+
+        img, canvas {
+            margin-top: -25%;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: auto;
+
+            @include breakpoint($small) {
+                margin-top: 0;
+            }
+        }
+
+    }
+
+}
+
+.feature-box {
+
+    a:hover, a:focus {
+        //position: absolute; ^*^ Fixes pagination issue on homepage slider
+    }
+
+}
+
+.feature-box, .highlight-box {
+
+	a {
+	    background: $lightGrey;
+    }
+
+    h1 {
+        padding: 5px 8px 11px;
+        display: block;
+        position: absolute;
+        z-index: 2;
+        width: 100%;
+        left: 0;
+        top: 0;
+        height: 200%;
+        min-height: 54px;
+        background: $grey;
+        color: white;
+    }
+
+    &.red a, &.red > div, a.red {
+        background: $lightRed;
+        color: $red;
+
+        h1, .btn {
+            background: $red;
+        }
+        &:hover .btn, &:focus .btn {
+            background: white;
+            color: $red;
+        }
+    }
+
+    &.green a, &.green > div,
+    a.green {
+        background: $lightGreen;
+        color: $green;
+
+        h1, .btn {
+            background: $green;
+        }
+        &:hover .btn, &:focus .btn {
+            background: white;
+            color: $green;
+        }
+    }
+
+    &.blue a, &.blue > div, a.blue {
+        background: $lightBlue;
+        color: $blue;
+
+        h1, .btn {
+            background: $blue;
+        }
+        &:hover .btn, &:focus .btn {
+            background: white;
+            color: $blue;
+        }
+    }
+
+    a .replaced, > div .replaced {
+        h1 {
+            background: transparent;
+        }
+        img {
+	        @include breakpoint($small) {
+            	display: none;
+            }
+        }
+    }
+
+    .canvas & .multiply h1 {
+        opacity: 0;
+    }
+    .canvas & .multiply.replaced h1 {
+        opacity: 1;
+    }
+
+}
+
+.feature-box.is-large {
+	padding-bottom: 100%;
+	.img-wrap {
+		&:before {
+			margin-bottom: 100%;
+		}
+		img {
+			margin-top: 0;
+		}
+	}
+}
+
+.feature-box {
+    padding: 0;
+    padding-bottom: 50%;
+    position: relative;
+
+    @include breakpoint($small) {
+        width: 33.3333333333%;
+        padding-bottom: 33.3333333333%;
+
+        &.is-large {
+            width: 66.6666666666%;
+            padding-bottom: 66.6666666666%;
+        }
+    }
+
+    a {
+        position: absolute;
+        top: 4px;
+        right: 4px;
+        bottom: 4px;
+        left: 4px;
+        overflow: hidden;
+        background: $grey;
+    }
+
+    @include breakpoint($small) {
+        &.is-large h1 {
+            height: auto;
+            font-size: 32px;
+            line-height: 35px;
+            min-height: 121px;
+        }
+    }
+
+    .multiply{
+        h1{
+            padding-right: 47px;
+        }
+    }
+
+    .icon-wrap{
+        background: $headerButtonColor;
+    }
+
+    .icon-wrap{
+        position: absolute;
+        top: 8px;
+        right: 8px;
+
+        &::after{
+            border-top: 6px solid $headerButtonColor;
+        }
+    }
+
+}
+
+.highlight-box, .plain-box, .secondary-highlight-box {
+
+    @include breakpoint($small) {
+        float: left;
+        width: 33.33%;
+    }
+
+    > a {
+        position: relative;
+        padding-bottom: 39px;
+    }
+
+    p {
+        padding: 5px 8px 11px;
+        min-height: 147px;
+    }
+
+    .btn {
+        width: 108px;
+        position: absolute;
+        left: 8px;
+        bottom: 8px;
+    }
+}
+
+.highlight-box {
+
+    @include breakpoint($small, max) {
+        > a {
+            padding-bottom: 0;
+        }
+        p {
+            position: absolute;
+            top: 54px;
+            width: 100%;
+            color: white;
+        }
+    }
+
+    @include breakpoint($small) {
+        h1 {
+            height: auto;
+        }
+    }
+}
+
+.plain-box, .secondary-highlight-box {
+
+    a {
+        background: $medGrey;
+    }
+
+    h1 {
+        padding: 5px 0 3px;
+        margin: 0 8px;
+        border-bottom: solid 1px $grey;
+        min-height: 63px; // including border
+    }
+
+    p {
+        padding: 4px 8px 8px;
+        min-height: 84px;
+    }
+
+    @include breakpoint($small) {
+        .img-wrap:before {
+            margin-bottom: 48.33%;
+        }
+    }
+
+}
+
+.plain-box {
+    .img-wrap {
+        display: none;
+        @include breakpoint($small) {
+            display: block;
+        }
+    }
+}
+
+.plain-box.blue {
+	h1 {
+		border-bottom: 1px solid $blue;
+	}
+    a {
+        background: $lightBlue;
+        color: $blue;
+        .btn {
+            background: $blue;
+        }
+        &:hover {
+            .btn {
+                background: white;
+                color: $blue;
+            }
+        }
+    }
+}
+
+.plain-box.green {
+	h1 {
+		border-bottom: 1px solid $green;
+	}
+    a {
+        background: $lightGreen;
+        color: $green;
+        .btn {
+            background: $green;
+        }
+        &:hover {
+            .btn {
+                background: white;
+                color: $green;
+            }
+        }
+    }
+}
+
+.plain-box.red {
+	h1 {
+		border-bottom: 1px solid $red;
+	}
+    a {
+        background: $lightRed;
+        color: $red;
+        .btn {
+            background: $red;
+        }
+        &:hover {
+            .btn {
+                background: white;
+                color: $red;
+            }
+        }
+    }
+}
+.page-template-default .plain-box,
+.page-template-page-3cols-php .plain-box {
+    &:nth-child(1):before,
+    &:nth-child(2):before,
+    &:nth-child(3):before {
+        margin: 0 0 6px;
+        content: "";
+        display: block;
+        border-top: solid 1px $grey;
+    }
+}
+
+.secondary-highlight-box {
+
+    &:after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        display: block;
+        margin: 0 4px;
+        z-index: 100;
+        border-bottom: solid 1px $grey;
+    }
+
+    h1 {
+        margin: 0;
+        padding: 8px;
+        min-height: 54px;
+        background: $grey;
+        color: white;
+    }
+
+    .img-wrap:before {
+        margin-bottom: 77%;
+    }
+
+    .divide {
+        margin: 0 8px;
+        border-top: solid 1px $grey;
+        clear: both;
+    }
+
+    .pull-left .divide {
+        margin-right: -4px;
+    }
+    .pull-right .divide {
+        margin-left: -4px;
+    }
+
+}
+
+.col.col-primary-content h1.no-border {
+    border-bottom: none;
+    margin-bottom: 0;
+    min-height: 54px;
+}
+
+.page-template-page-secondary-landing-php {
+
+    .secondary-highlight-box:before {
+        margin: -8px 0 7px 0.125%;
+        content: "";
+        display: block;
+        border-top: solid 1px $grey;
+    }
+
+    .secondary-highlight-box > a {
+        border-bottom: 1px solid white;
+        margin-bottom: -1px;
+    }
+
+}

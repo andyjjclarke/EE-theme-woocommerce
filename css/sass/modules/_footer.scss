@@ -1,0 +1,82 @@
+.share {
+    padding-top: 58px;
+    background: $bodyBackground;
+
+    @include breakpoint($small, max){
+        padding-bottom: 20px;
+    }
+
+    > .wrap {
+        min-height: 62px;
+        &:before {
+            margin: 0 4px 3px;
+            content: "";
+            display: block;
+            border-top: solid 1px $grey;
+        }
+    }
+
+    h1 {
+        font-size: 23px;
+        line-height: 23px;
+        font-weight: normal;
+    }
+
+    ul.share-links {
+        margin: 0;
+        padding: 0;
+
+        li {
+            margin-right: 8px;
+            float: left;
+            @include hide-text;
+        }
+    }
+
+    .icon-wrap:hover {
+        background: $darkGrey;
+        &::after {
+            border-top-color: $darkGrey;
+        }
+    }
+
+}
+
+.foot {
+    padding-top: 4px;
+    padding-bottom: 4px;
+    min-height: 124px;
+    background: $footerBackground;
+    color: $footerColor;
+    font-size: 12px;
+    line-height: 15px;
+
+    a:link, a:visited {
+        color: $footerColor;
+        text-decoration: underline;
+    }
+
+    h1 {
+        font-size: 12px;
+        line-height: 17px;
+    }
+
+    > .col {
+        @include breakpoint($small) {
+            width: 25%;
+            padding: 9px 0;
+        }
+    }
+
+    .col{
+        @include breakpoint($small, max) {
+            padding: 6px 4px;
+        }
+    }
+
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+}
